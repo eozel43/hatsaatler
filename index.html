@@ -3,6 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LGS Çalışma Takip</title>
+    <link rel="stylesheet" href="/workspace/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>LGS Çalışma Takip</h1>
+            <p>Günlük soru sayıları ve doğru/yanlış/boş girişleri, kümülatif toplamlarla birlikte.</p>
+        </header>
+
+        <section class="card" id="entry-section">
+            <h2>Günlük Giriş</h2>
+            <form id="entry-form" autocomplete="off" novalidate>
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="date">Tarih</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="subject">Ders</label>
+                        <select id="subject" name="subject" required></select>
+                    </div>
+                    <div class="form-field">
+                        <label for="solved">Çözülen Soru</label>
+                        <input type="number" id="solved" name="solved" inputmode="numeric" min="0" step="1" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="correct">Doğru</label>
+                        <input type="number" id="correct" name="correct" inputmode="numeric" min="0" step="1" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="wrong">Yanlış</label>
+                        <input type="number" id="wrong" name="wrong" inputmode="numeric" min="0" step="1" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="blank">Boş</label>
+                        <input type="number" id="blank" name="blank" inputmode="numeric" min="0" step="1" required>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn primary">Ekle</button>
+                    <span id="form-hint" class="hint"></span>
+                </div>
+            </form>
+        </section>
+
+        <section class="card" id="totals-section">
+            <h2>Kümülatif Toplamlar</h2>
+            <div id="totals-grid" class="totals-grid"></div>
+            <div class="overall">
+                <h3>Genel Toplam</h3>
+                <div id="overall-totals" class="overall-totals"></div>
+            </div>
+        </section>
+
+        <section class="card" id="entries-section">
+            <div class="section-header">
+                <h2>Girişler</h2>
+                <div class="section-actions">
+                    <button id="export-btn" class="btn">CSV Dışa Aktar</button>
+                    <button id="reset-btn" class="btn danger">Tüm Verileri Sıfırla</button>
+                </div>
+            </div>
+            <div class="table-wrapper">
+                <table id="entries-table">
+                    <thead>
+                        <tr>
+                            <th>Tarih</th>
+                            <th>Ders</th>
+                            <th>Çözülen</th>
+                            <th>Doğru</th>
+                            <th>Yanlış</th>
+                            <th>Boş</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="entries-tbody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer class="app-footer">
+            <small>Veriler cihazınızda saklanır (localStorage). v1</small>
+        </footer>
+    </div>
+
+    <script src="/workspace/app.js"></script>
+    <noscript>Bu uygulamayı kullanmak için JavaScript etkin olmalıdır.</noscript>
+    
+    <!--
+        Made with ❤️ for LGS öğrencileri.
+    -->
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hat Saatleri Oluşturucu</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
